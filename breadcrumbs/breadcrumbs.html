@@ -1,0 +1,12 @@
+<div class="ui breadcrumb">
+    {% for url, label in breadcrumbs %}
+        {% ifnotequal forloop.counter breadcrumbs_total %}
+            <a class="section" href="{{ url }}">{{ label|safe }}</a>
+        {% else %}
+            {{ label|safe }}
+        {% endifnotequal %}
+        {% if not forloop.last %}
+            <i class="right chevron icon divider"></i>
+        {% endif %}
+    {% endfor %}
+</div>

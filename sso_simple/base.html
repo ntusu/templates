@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css"/>
+    <title>{% block title %}NTU-SU{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body > .grid {
+        height: 100%;
+      }
+
+      .column.centered {
+        max-width: 450px;
+      }
+    </style>
+  </head>
+  <body>
+    {% block navbar %}
+    {% endblock %}
+    {% block breadcrumbs %}
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
+    {% load raven %}
+    <script src="https://cdn.ravenjs.com/3.26.4/raven.min.js" crossorigin="anonymous"></script>
+    <script>Raven.config('{% sentry_public_dsn %}').install()</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.js"></script>
+    {% block script %}
+    {% endblock %}
+  </body>
+</html>
